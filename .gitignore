@@ -1,0 +1,16 @@
+# Gradle 构建产物
+build/
+.gradle/
+.javac-out/
+
+# IntelliJ Platform Gradle 插件的本地缓存与下载产物
+.intellijPlatform/
+
+# IDE 配置
+.idea/
+*.iml
+local.properties
+
+# 操作系统文件
+.DS_Store
+Thumbs.db

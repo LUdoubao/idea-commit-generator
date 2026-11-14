@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>com.github.codex.idea-commit-generator</id>
+    <name>IDEA Commit Generator</name>
+    <version>0.2.0</version>
+    <vendor>Codex</vendor>
+    <idea-version since-build="233" until-build="263.*"/>
+    <description><![CDATA[
+        Generates Git commit messages with the configured OpenCode model, using only the changes selected in the IDEA Commit panel.
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <depends optional="true" config-file="git-features.xml">Git4Idea</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="IDEA Commit Generator" displayType="BALLOON"/>
+        <applicationService
+                serviceImplementation="com.github.codex.commitgenerator.service.CommitModelSettingsService"/>
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.github.codex.commitgenerator.settings.CommitModelConfigurable"/>
+    </extensions>
+</idea-plugin>

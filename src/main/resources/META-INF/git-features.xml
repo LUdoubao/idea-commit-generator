@@ -1,0 +1,16 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+                serviceInterface="com.github.codex.commitgenerator.service.GitDiffBackend"
+                serviceImplementation="com.github.codex.commitgenerator.service.Git4IdeaDiffBackend"/>
+    </extensions>
+    <actions>
+        <action id="IdeaCommitGenerator.GenerateCommitMessageAction"
+                class="com.github.codex.commitgenerator.action.CommitGeneratorAction"
+                text="Generate Commit Message"
+                description="Generate a commit message for the selected changes"
+                icon="/icons/codex.svg">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

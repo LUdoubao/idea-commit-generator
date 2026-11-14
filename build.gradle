@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij.platform' version '2.10.5'
+}
+
+group = 'com.github.codex'
+version = '0.1.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.10.1'
+    testImplementation 'junit:junit:4.13.2'
+
+    intellijPlatform {
+        intellijIdeaCommunity('2024.2.4')
+        bundledPlugin('Git4Idea')
+        pluginVerifier()
+        instrumentationTools()
+    }
+}
+
+intellijPlatform {
+    pluginVerification {
+        ides {
+            ide('IC', '242.23726.103')
+        }
+    }
+}
+
+patchPluginXml {
+    sinceBuild = '233'
+    untilBuild = '263.*'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release.set(17)
+}
+
+tasks.named('test', Test) {
+    useJUnit()
+}
