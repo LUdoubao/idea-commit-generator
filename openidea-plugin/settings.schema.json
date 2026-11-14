@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "description": "OpenCode model used for commit messages. LongCat is the default; DeepSeek Flash is the slower alternative already verified with the IntelliJ plugin.",
+      "enum": ["opencode-go/longcat-2.5-free", "opencode-go/deepseek-v4.1-flash"],
+      "default": "opencode-go/longcat-2.5-free"
+    }
+  }
+}

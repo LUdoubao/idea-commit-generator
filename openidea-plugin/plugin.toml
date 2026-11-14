@@ -1,0 +1,28 @@
+id = "com.github.codex.openidea-commit-generator"
+name = "OpenIDEA Commit Generator"
+version = "0.1.0"
+description = "Uses the local OpenCode CLI to generate a Git commit message from the changes included in OpenIDEA's commit panel."
+authors = ["Codex"]
+categories = ["vcs", "ai"]
+engines.openidea = "^1.7"
+wasm = "dist/plugin.wasm"
+icon = "icons/codex.svg"
+icon-dark = "icons/codex_dark.svg"
+activation = ["on-command:*"]
+
+[capabilities]
+required = ["vcs.read", "vcs.write", "process:opencode"]
+
+[[contributes.commands]]
+id = "generate"
+title = "Generate Commit Message"
+category = "Commit"
+icon = "icons/codex.svg"
+
+[[contributes.menus]]
+menu = "commit.message"
+command = "generate"
+
+[contributes.settings]
+title = "OpenIDEA Commit Generator"
+schema = "settings.schema.json"
